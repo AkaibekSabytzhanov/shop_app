@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'package:shop_app1/constants/style/style.dart';
+import 'package:shop_app1/constants/style/text_style.dart';
 import 'package:shop_app1/presentation/widgets/category_widget.dart';
+import 'package:shop_app1/presentation/widgets/slider_widget.dart';
 import 'package:shop_app1/utillities/category_list.dart';
 
 class Kids extends StatelessWidget {
-  Kids({
+  const Kids({
     Key? key,
   }) : super(key: key);
 
@@ -16,7 +17,7 @@ class Kids extends StatelessWidget {
         Positioned(
           child: Column(
             children: [
-              Padding(
+              const Padding(
                 padding: EdgeInsets.only(right: 200.0, top: 20.0),
                 child: Text("Kids", style: TextStyles.text20Black),
               ),
@@ -30,7 +31,7 @@ class Kids extends StatelessWidget {
                     kids.length,
                     (index) {
                       return CategoryWidget(
-                        DetalsAppText: kids[index],
+                        detalsAppText: kids[index],
                         detalsImage: 'assets/images/kids/kids$index.jpg',
                         categoryImage: 'assets/images/kids/kids$index.jpg',
                         labelText: kids[index],
@@ -41,7 +42,14 @@ class Kids extends StatelessWidget {
               ),
             ],
           ),
-        )
+        ),
+        const Positioned(
+          bottom: 0.0,
+          right: 10.0,
+          child: SliderWidget(
+            sliderText: "KIDS",
+          ),
+        ),
       ],
     );
   }

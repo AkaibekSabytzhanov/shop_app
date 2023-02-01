@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app1/components/detals.dart';
-import 'package:shop_app1/constants/style/style.dart';
+
+import 'package:shop_app1/constants/style/text_style.dart';
 import 'package:shop_app1/presentation/widgets/category_widget.dart';
+import 'package:shop_app1/presentation/widgets/slider_widget.dart';
 import 'package:shop_app1/utillities/category_list.dart';
 
 class HomeGarden extends StatelessWidget {
-  HomeGarden({
+  const HomeGarden({
     Key? key,
   }) : super(key: key);
 
@@ -16,7 +17,7 @@ class HomeGarden extends StatelessWidget {
         Positioned(
           child: Column(
             children: [
-              Padding(
+              const Padding(
                 padding: EdgeInsets.only(right: 170.0, top: 20.0),
                 child: Text("HomeGarden ", style: TextStyles.text20Black),
               ),
@@ -30,7 +31,7 @@ class HomeGarden extends StatelessWidget {
                     homeandgarden.length,
                     (index) {
                       return CategoryWidget(
-                        DetalsAppText: homeandgarden[index],
+                        detalsAppText: homeandgarden[index],
                         detalsImage: 'assets/images/homegarden/home$index.jpg',
                         categoryImage:
                             'assets/images/homegarden/home$index.jpg',
@@ -42,7 +43,14 @@ class HomeGarden extends StatelessWidget {
               ),
             ],
           ),
-        )
+        ),
+        const Positioned(
+          bottom: 0.0,
+          right: 10.0,
+          child: SliderWidget(
+            sliderText: "HOME GARDEN",
+          ),
+        ),
       ],
     );
   }

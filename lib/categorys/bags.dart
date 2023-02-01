@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'package:shop_app1/constants/style/style.dart';
+import 'package:shop_app1/constants/style/text_style.dart';
 import 'package:shop_app1/presentation/widgets/category_widget.dart';
+import 'package:shop_app1/presentation/widgets/slider_widget.dart';
 import 'package:shop_app1/utillities/category_list.dart';
 
 class Bags extends StatelessWidget {
-  Bags({
+  const Bags({
     Key? key,
   }) : super(key: key);
 
@@ -16,7 +17,7 @@ class Bags extends StatelessWidget {
         Positioned(
           child: Column(
             children: [
-              Padding(
+              const Padding(
                 padding: EdgeInsets.only(right: 200.0, top: 20.0),
                 child: Text("Bags", style: TextStyles.text20Black),
               ),
@@ -30,7 +31,7 @@ class Bags extends StatelessWidget {
                     bags.length,
                     (index) {
                       return CategoryWidget(
-                        DetalsAppText: bags[index],
+                        detalsAppText: bags[index],
                         detalsImage: 'assets/images/bags/bags$index.jpg',
                         categoryImage: 'assets/images/bags/bags$index.jpg',
                         labelText: bags[index],
@@ -41,7 +42,14 @@ class Bags extends StatelessWidget {
               ),
             ],
           ),
-        )
+        ),
+        const Positioned(
+          bottom: 0.0,
+          right: 10.0,
+          child: SliderWidget(
+            sliderText: "BAGS",
+          ),
+        ),
       ],
     );
   }

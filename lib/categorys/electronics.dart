@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'package:shop_app1/constants/style/style.dart';
+import 'package:shop_app1/constants/style/text_style.dart';
 import 'package:shop_app1/presentation/widgets/category_widget.dart';
+import 'package:shop_app1/presentation/widgets/slider_widget.dart';
 import 'package:shop_app1/utillities/category_list.dart';
 
 class Electronics extends StatelessWidget {
-  Electronics({
+  const Electronics({
     Key? key,
   }) : super(key: key);
 
@@ -16,7 +17,7 @@ class Electronics extends StatelessWidget {
         Positioned(
           child: Column(
             children: [
-              Padding(
+              const Padding(
                 padding: EdgeInsets.only(right: 190.0, top: 20.0),
                 child: Text("Electronics", style: TextStyles.text20Black),
               ),
@@ -30,7 +31,7 @@ class Electronics extends StatelessWidget {
                     electronics.length,
                     (index) {
                       return CategoryWidget(
-                        DetalsAppText: electronics[index],
+                        detalsAppText: electronics[index],
                         detalsImage:
                             'assets/images/electronics/electronics$index.jpg',
                         categoryImage:
@@ -43,7 +44,14 @@ class Electronics extends StatelessWidget {
               ),
             ],
           ),
-        )
+        ),
+        const Positioned(
+          bottom: 0.0,
+          right: 10.0,
+          child: SliderWidget(
+            sliderText: "ELECTRONICS",
+          ),
+        ),
       ],
     );
   }

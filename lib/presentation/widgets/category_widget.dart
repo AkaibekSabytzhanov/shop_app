@@ -3,13 +3,13 @@ import 'package:shop_app1/components/detals.dart';
 
 class CategoryWidget extends StatelessWidget {
   CategoryWidget({
-    required this.DetalsAppText,
+    required this.detalsAppText,
     required this.categoryImage,
     required this.detalsImage,
     required this.labelText,
     Key? key,
   }) : super(key: key);
-  final String DetalsAppText;
+  final String detalsAppText;
   final String detalsImage;
   final String categoryImage;
   final String labelText;
@@ -22,7 +22,7 @@ class CategoryWidget extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) => Detals(
-              DetalsAppText: DetalsAppText,
+              detalsAppText: detalsAppText,
               image: detalsImage,
             ),
           ),

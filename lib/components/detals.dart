@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 class Detals extends StatelessWidget {
   const Detals({
     Key? key,
-    required this.DetalsAppText,
+    required this.detalsAppText,
     required this.image,
   }) : super(key: key);
-  final String DetalsAppText;
+  final String detalsAppText;
   final String image;
 
   @override
@@ -15,7 +15,7 @@ class Detals extends StatelessWidget {
       appBar: AppBar(
         elevation: 0.0,
         centerTitle: true,
-        title: Text(DetalsAppText),
+        title: Text(detalsAppText),
       ),
       body: Center(
         child: Image.asset(image),

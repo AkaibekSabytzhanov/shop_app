@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:shop_app1/constants/colors/app_colors.dart';
 import 'package:shop_app1/presentation/widgets/serch_widget.dart';
 
-class Home_Page extends StatefulWidget {
-  const Home_Page({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  _Home_PageState createState() => _Home_PageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _Home_PageState extends State<Home_Page> {
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(

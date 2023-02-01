@@ -13,14 +13,25 @@ import 'package:shop_app1/constants/colors/app_colors.dart';
 import 'package:shop_app1/data/Items_data.dart';
 import 'package:shop_app1/presentation/widgets/serch_widget.dart';
 
-class Category_Page extends StatefulWidget {
-  const Category_Page({Key? key}) : super(key: key);
+class CategoryPage extends StatefulWidget {
+  const CategoryPage({Key? key}) : super(key: key);
 
   @override
-  _Category_PageState createState() => _Category_PageState();
+  _CategoryPageState createState() => _CategoryPageState();
 }
 
-class _Category_PageState extends State<Category_Page> {
+class _CategoryPageState extends State<CategoryPage> {
+  @override
+  void initState() {
+    for (var element in items) {
+      element.isTandalgan = false;
+    }
+    setState(() {
+      items[0].isTandalgan = true;
+    });
+    super.initState();
+  }
+
   final _pageController = PageController();
   @override
   Widget build(BuildContext context) {
@@ -75,17 +86,17 @@ class _Category_PageState extends State<Category_Page> {
       height: size.height * 0.84,
       width: size.width * 0.8,
       child: PageView(
-        // onPageChanged: (value) {
-        //   for (var element in items) {
-        //     element.isTandalgan = false;
-        //   }
-        //   setState(() {
-        //     items[value].isTandalgan = true;
-        //   });
-        // },
+        onPageChanged: (value) {
+          for (var element in items) {
+            element.isTandalgan = false;
+          }
+          setState(() {
+            items[value].isTandalgan = true;
+          });
+        },
         controller: _pageController,
         scrollDirection: Axis.vertical,
-        children: [
+        children: const [
           Men(),
           Women(),
           Shoes(),

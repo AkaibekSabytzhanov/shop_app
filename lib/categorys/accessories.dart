@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'package:shop_app1/constants/style/style.dart';
+import 'package:shop_app1/constants/style/text_style.dart';
 import 'package:shop_app1/presentation/widgets/category_widget.dart';
+import 'package:shop_app1/presentation/widgets/slider_widget.dart';
 import 'package:shop_app1/utillities/category_list.dart';
 
 class Accessories extends StatelessWidget {
-  Accessories({
+  const Accessories({
     Key? key,
   }) : super(key: key);
 
@@ -16,7 +17,7 @@ class Accessories extends StatelessWidget {
         Positioned(
           child: Column(
             children: [
-              Padding(
+              const Padding(
                 padding: EdgeInsets.only(right: 180.0, top: 20.0),
                 child: Text("Accessories", style: TextStyles.text20Black),
               ),
@@ -30,7 +31,7 @@ class Accessories extends StatelessWidget {
                     accessories.length,
                     (index) {
                       return CategoryWidget(
-                        DetalsAppText: accessories[index],
+                        detalsAppText: accessories[index],
                         detalsImage:
                             'assets/images/accessories/accessories$index.jpg',
                         categoryImage:
@@ -43,7 +44,14 @@ class Accessories extends StatelessWidget {
               ),
             ],
           ),
-        )
+        ),
+        const Positioned(
+          bottom: 0.0,
+          right: 10.0,
+          child: SliderWidget(
+            sliderText: "ACCESSORIES",
+          ),
+        ),
       ],
     );
   }

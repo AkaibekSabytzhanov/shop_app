@@ -1,39 +1,37 @@
 import 'package:flutter/material.dart';
-
 import 'package:shop_app1/constants/colors/app_colors.dart';
-import 'package:shop_app1/presentation/pages/cart_page.dart';
-
 import 'package:shop_app1/presentation/pages/category_page.dart';
+import 'package:shop_app1/presentation/pages/dashboard_page.dart';
 import 'package:shop_app1/presentation/pages/home_page.dart';
-
-import 'package:shop_app1/presentation/pages/profile_page.dart';
 import 'package:shop_app1/presentation/pages/stores_page.dart';
 
-class CustomerScreen extends StatefulWidget {
-  const CustomerScreen({Key? key}) : super(key: key);
+class SupplierHomeScreen extends StatefulWidget {
+  const SupplierHomeScreen({Key? key}) : super(key: key);
 
   @override
-  _CustomerScreenState createState() => _CustomerScreenState();
+  _SupplierHomeScreenState createState() => _SupplierHomeScreenState();
 }
 
-class _CustomerScreenState extends State<CustomerScreen> {
-  int _tandalganIndex = 0;
+class _SupplierHomeScreenState extends State<SupplierHomeScreen> {
+  int _selectedIndex = 0;
   final List<Widget> _tabs = [
     const HomePage(),
     const CategoryPage(),
     const StoresPage(),
-    const CartPage(),
-    const ProfilePage(),
+    const DashboardPage(),
+    const Center(
+      child: Text('Upload'),
+    )
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _tabs[_tandalganIndex],
+      body: _tabs[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         elevation: 0.0,
         selectedLabelStyle: const TextStyle(fontWeight: FontWeight.w600),
-        currentIndex: _tandalganIndex,
+        currentIndex: _selectedIndex,
         selectedItemColor: AppColors.black,
         unselectedItemColor: AppColors.grey,
         items: const [
@@ -41,15 +39,13 @@ class _CustomerScreenState extends State<CustomerScreen> {
           BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Category'),
           BottomNavigationBarItem(icon: Icon(Icons.shop), label: 'Stores'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart), label: 'Cart'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+              icon: Icon(Icons.dashboard), label: 'Dashboard'),
+          BottomNavigationBarItem(icon: Icon(Icons.upload), label: 'Upload'),
         ],
         onTap: (index) {
-          setState(
-            () {
-              _tandalganIndex = index;
-            },
-          );
+          setState(() {
+            _selectedIndex = index;
+          });
         },
       ),
     );

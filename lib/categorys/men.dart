@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
-import 'package:shop_app1/constants/style/style.dart';
+
+import 'package:shop_app1/constants/style/text_style.dart';
 import 'package:shop_app1/presentation/widgets/category_widget.dart';
+import 'package:shop_app1/presentation/widgets/slider_widget.dart';
 import 'package:shop_app1/utillities/category_list.dart';
 
 class Men extends StatelessWidget {
-  Men({
+  const Men({
     Key? key,
   }) : super(key: key);
 
@@ -16,7 +18,7 @@ class Men extends StatelessWidget {
         Positioned(
           child: Column(
             children: [
-              Padding(
+              const Padding(
                 padding: EdgeInsets.only(right: 200.0, top: 20.0),
                 child: Text("Men", style: TextStyles.text20Black),
               ),
@@ -30,7 +32,7 @@ class Men extends StatelessWidget {
                     men.length,
                     (index) {
                       return CategoryWidget(
-                        DetalsAppText: men[index],
+                        detalsAppText: men[index],
                         detalsImage: 'assets/images/men/men$index.jpg',
                         categoryImage: 'assets/images/men/men$index.jpg',
                         labelText: men[index],
@@ -41,7 +43,14 @@ class Men extends StatelessWidget {
               ),
             ],
           ),
-        )
+        ),
+        const Positioned(
+          bottom: 0.0,
+          right: 10.0,
+          child: SliderWidget(
+            sliderText: "MEN",
+          ),
+        ),
       ],
     );
   }
